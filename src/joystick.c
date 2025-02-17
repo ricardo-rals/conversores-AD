@@ -12,11 +12,11 @@ void joystick_init()
 
 uint16_t ler_joystick_x()
 {
-    adc_select_input(0);
+    adc_select_input(1);
     return adc_read();
 }
 uint16_t ler_joystick_y()
 {
-    adc_select_input(1);
+    adc_select_input(0);
     return adc_read();
 }

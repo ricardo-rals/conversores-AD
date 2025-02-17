@@ -2,10 +2,6 @@
 #include <stdlib.h>
 #include "hardware/pwm.h"
 
-#define PINO_LED_VERMELHO 11
-#define PINO_LED_VERDE 12
-#define PINO_LED_AZUL 13
-
 volatile bool pwm_habilitado = true;
 
 void configurar_pwm(uint pino) {

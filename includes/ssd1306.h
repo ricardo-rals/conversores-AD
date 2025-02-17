@@ -1,10 +1,9 @@
+#ifndef SSD1306_H
+#define SSD1306_H
+
 #include <stdlib.h>
 #include "pico/stdlib.h"
 #include "hardware/i2c.h"
-
-#define WIDTH 128
-#define HEIGHT 64
-
 typedef enum {
   SET_CONTRAST = 0x81,
   SET_ENTIRE_ON = 0xA4,
@@ -42,3 +41,5 @@ void ssd1306_send_data(ssd1306_t *ssd);
 void ssd1306_pixel(ssd1306_t *ssd, uint8_t x, uint8_t y, bool value);
 void ssd1306_fill(ssd1306_t *ssd, bool value);
 void ssd1306_rect(ssd1306_t *ssd, uint8_t top, uint8_t left, uint8_t width, uint8_t height, bool value, bool fill);
+
+#endif
