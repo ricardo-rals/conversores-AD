@@ -29,11 +29,11 @@ int main() {
 
         controle_leds_atualizar(valor_x, valor_y);
 
-        posicao_x = ((4095 - valor_x) * (LARGURA_DISPLAY - TAMANHO_QUADRADO)) / 4095;
+        posicao_x = (valor_x * (LARGURA_DISPLAY - TAMANHO_QUADRADO)) / 4095;
         posicao_y = ((4095 - valor_y) * (ALTURA_DISPLAY - TAMANHO_QUADRADO)) / 4095;
         display_atualizar(posicao_x, posicao_y);
         
-        printf("X: %d, Y: %d\n", valor_x, valor_y);
+        // printf("X: %d, Y: %d\n", valor_x, valor_y);
 
         botoes_tratar();
 
