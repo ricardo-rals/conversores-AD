@@ -1,4 +1,5 @@
 #include "../includes/controle_leds.h"
+#include <stdlib.h>
 #include "hardware/pwm.h"
 
 #define PINO_LED_VERMELHO 11

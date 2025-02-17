@@ -35,7 +35,7 @@ pico_sdk_init()
 
 # Add executable. Default name is the project name, version 0.1
 
-add_executable(conversores-AD conversores-AD.c)
+add_executable(conversores-AD conversores-AD.c src/controle_leds.c src/joystick.c src/ssd1306.c)
 
 pico_set_program_name(conversores-AD "conversores-AD")
 pico_set_program_version(conversores-AD "0.1")
