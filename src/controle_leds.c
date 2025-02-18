@@ -25,7 +25,7 @@ void controle_leds_atualizar(uint16_t valor_x, uint16_t valor_y) {
 
     // Lógica para o LED verde (acionado pelo botão)
     if (estado_led_verde) {
-      pwm_set_gpio_level(PINO_LED_VERDE, 4095); // Liga o LED verde no máximo
+      pwm_set_gpio_level(PINO_LED_VERDE, 2048); // Liga o LED verde no máximo
     } else {
       pwm_set_gpio_level(PINO_LED_VERDE, 0); // Desliga o LED verde
     }
