@@ -18,8 +18,8 @@ int main() {
     adc_init();
     joystick_init();
     controle_leds_init();
-    botoes_init();
     display_init();
+    botoes_init();
 
     int posicao_x = (LARGURA_DISPLAY - TAMANHO_QUADRADO) / 2;
     int posicao_y = (ALTURA_DISPLAY - TAMANHO_QUADRADO) / 2;
@@ -35,7 +35,8 @@ int main() {
         
         // printf("X: %d, Y: %d\n", valor_x, valor_y);
 
-        botoes_tratar();
+        botoes_tratar_joystick();  // Verifica e trata apenas o joystick
+        botoes_tratar_a();  
 
         sleep_ms(10);
     }

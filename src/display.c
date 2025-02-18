@@ -22,7 +22,7 @@ void display_atualizar(int x, int y) {
     ssd1306_fill(&display, false);
     ssd1306_rect(&display, y, x, TAMANHO_QUADRADO, TAMANHO_QUADRADO, true, true);
     ssd1306_send_data(&display);
-    printf("Posição no display - X: %d, Y: %d\n", x, y);
+    // printf("Posição no display - X: %d, Y: %d\n", x, y);
 }
 
 void display_desenhar_borda(uint8_t estilo) {

@@ -3,9 +3,9 @@
 
 #include "pico/stdlib.h"
 
-#define PINO_LED_VERMELHO 11
-#define PINO_LED_VERDE 12
-#define PINO_LED_AZUL 13
+#define PINO_LED_VERMELHO 13
+#define PINO_LED_VERDE 11
+#define PINO_LED_AZUL 12
 extern volatile bool pwm_habilitado;
 
 void controle_leds_init();
