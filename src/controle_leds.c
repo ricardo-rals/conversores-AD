@@ -19,9 +19,10 @@ void controle_leds_init() {
 }
 
 void controle_leds_atualizar(uint16_t valor_x, uint16_t valor_y) {
+  uint8_t tolerancia = 100;
   if (pwm_habilitado) {
-    pwm_set_gpio_level(PINO_LED_VERMELHO, abs(valor_x - 2048));
-    pwm_set_gpio_level(PINO_LED_AZUL, abs(valor_y - 2048));
+    pwm_set_gpio_level(PINO_LED_VERMELHO, (abs(valor_x - 2048) > tolerancia) ? abs(valor_x - 2048) : 0);
+    pwm_set_gpio_level(PINO_LED_AZUL, (abs(valor_y - 2048) > tolerancia) ? abs(valor_y - 2048) : 0);
 
     // Lógica para o LED verde (acionado pelo botão)
     if (estado_led_verde) {
