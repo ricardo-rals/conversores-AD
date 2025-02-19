@@ -28,16 +28,16 @@ int main() {
         uint16_t valor_y = ler_joystick_y();
 
         controle_leds_atualizar(valor_x, valor_y);
+        uint8_t estilo_borda = botoes_tratar_joystick();
 
         posicao_x = (valor_x * (LARGURA_DISPLAY - TAMANHO_QUADRADO)) / 4095;
         posicao_y = ((4095 - valor_y) * (ALTURA_DISPLAY - TAMANHO_QUADRADO)) / 4095;
-        display_atualizar(posicao_x, posicao_y);
+        display_atualizar(posicao_x, posicao_y, estilo_borda);
         
         // printf("X: %d, Y: %d\n", valor_x, valor_y);
 
-        botoes_tratar_joystick();  // Verifica e trata apenas o joystick
+        // botoes_tratar_joystick();  // Verifica e trata apenas o joystick
         botoes_tratar_a();  
-
         sleep_ms(10);
     }
 

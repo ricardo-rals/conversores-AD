@@ -11,13 +11,16 @@ uint8_t estilo_borda = 0;
 bool debounce(uint gpio) {
     static uint32_t ultimo_tempo = 0;
     uint32_t agora = to_ms_since_boot(get_absolute_time());
+
     if (agora - ultimo_tempo < 200) { // 200ms de debounce
+        printf("Botão ignorado (debounce ativo)\n");
         return false;
     }
     if (!gpio_get(gpio)) { // Verifica se o botão ainda está pressionado
         ultimo_tempo = agora;
         return true;
     }
+    
     return false;
 }
 
@@ -54,17 +57,22 @@ void botoes_init() {
 }
 
 // **Função para tratar apenas o botão do joystick**
-void botoes_tratar_joystick() {
+uint8_t botoes_tratar_joystick() {
     if (botao_joystick_pressionado) {
-        printf("Tratando botão do joystick\n");
         botao_joystick_pressionado = false;
+
+        // Alterna o LED
         estado_led_verde = !estado_led_verde;
         gpio_put(PINO_LED_VERDE, estado_led_verde);
+
+        // Alterna o estilo de borda
         estilo_borda = (estilo_borda + 1) % 3;
-        display_desenhar_borda(estilo_borda);
-        printf("Botão do joystick pressionado! LED Verde: %d, Estilo Borda: %d\n", estado_led_verde, estilo_borda);
+
+        return estilo_borda;
     }
+    return estilo_borda; // Retorna o estado atual caso não tenha sido pressionado
 }
+
 
 // **Função para tratar apenas o botão A**
 void botoes_tratar_a() {

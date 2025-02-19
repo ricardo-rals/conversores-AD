@@ -8,7 +8,7 @@
 extern volatile bool estado_led_verde;
 
 void botoes_init();
-void botoes_tratar_joystick();  // Verifica e trata apenas o joystick
+uint8_t botoes_tratar_joystick();  // Verifica e trata apenas o joystick
 void botoes_tratar_a();  
 
 #endif 

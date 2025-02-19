@@ -10,7 +10,7 @@
 #define PINO_I2C_SCL 15
 
 void display_init();
-void display_atualizar(int x, int y);
+void display_atualizar(int x, int y, uint8_t estilo);
 void display_desenhar_borda(uint8_t estilo);
 
 #endif
